@@ -5,6 +5,7 @@ from models import get_dummy_data
 import pandas as pd
 from models import prepare_dataframe
 import pickle
+from sklearn.ensemble import RandomForestRegressor
 
 app = Flask(__name__)
 
