@@ -4,6 +4,7 @@ from flask import request, render_template
 from models import get_dummy_data
 import pandas as pd
 from models import prepare_dataframe
+import pickle
 
 app = Flask(__name__)
 
@@ -24,9 +25,12 @@ def flights():
         flights = get_dummy_data.get_final_data(airlines, flying_from, flying_to, dep_date)
         df = pd.DataFrame(flights)
         df = prepare_dataframe.process_dataframe(df)
-        print(df)
 
-    return "Success"
+        rf_random = pickle.load(open('RandomForestRegression.pkl', 'rb'))
+        prices = rf_random.predict(df)
+        print(prices)
+
+    return render_template('simple.html',  tables=[df.to_html(classes='data')], titles=df.columns.values)
 
 
 if __name__ == '__main__':
