@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>Flight Fare Prediction</title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<!-- <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" /> -->
+	<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+	<!-- Custom stlylesheet -->
+	<!-- <link type="text/css" rel="stylesheet" href="css/style.css" /> -->
+	<link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+</head>
+
+<body>
+	<div id="booking" class="section">
+		<div class="section-center">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="booking-cta">
+							<h1>Flight Fare Prediction</h1>
+							<p>We will predict your fare price according to our datasets</p>
+						</div>
+					</div>
+					<div class="col-md-7 col-md-offset-1">
+						<div class="booking-form">
+							<form action='/show_flights' method='POST'>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group">
+											<span class="form-label">Select Airlines</span>
+											<select name="airlines" class="form-control">
+												<option value="IndiGo">IndiGo</option>
+												<option value="Air India">Air India</option>
+												<option value="Jet Airways">Jet Airways</option>
+												<option value="Jet Airways Business">Jet Airways Business</option>
+												<option value="SpiceJet">SpiceJet</option>
+												<option value="Air Asia">Air Asia</option>
+												<option value="GoAir">GoAir</option>
+												<option value="Trujet">Trujet</option>
+												<option value="Vistara">Vistara</option>
+												<option value="Vistara Premium economy">Vistara Premium economy</option>
+												<option value="Multiple carriers">Multiple carriers</option>
+												<option value="Multiple carriers Premium economy">Multiple carriers Premium economy</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<span class="form-label">Flying from</span>
+											<select name="flying_from" class="form-control">
+												<option value="Chennai">Chennai</option>
+												<option value="Mumbai">Mumbai</option>
+												<option value="New Delhi">New Delhi</option>
+												<option value="Banglore">Banglore</option>
+												<option value="Cochin">Cochin</option>
+												<option value="Kolkata">Kolkata</option>
+												<option value="Delhi">Delhi</option>
+												<option value="Hyderabad">Hyderabad</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<span class="form-label">Flyning to</span>
+											<select name="flying_to" class="form-control">
+												<option value="New Delhi">New Delhi</option>
+												<option value="Chennai">Chennai</option>
+												<option value="Mumbai">Mumbai</option>
+												<option value="Banglore">Banglore</option>
+												<option value="Cochin">Cochin</option>
+												<option value="Kolkata">Kolkata</option>
+												<option value="Delhi">Delhi</option>
+												<option value="Hyderabad">Hyderabad</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group">
+											<span class="form-label">Departing</span>
+											<input class="form-control" name="dep_date" type="date" required>
+										</div>
+									</div>
+								</div>
+								<div class="form-btn">
+									<input type="submit" class="submit-btn" value="Show flights">
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
